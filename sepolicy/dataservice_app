@@ -1,3 +1,0 @@
-#audit2allow - hackintosh5 - penn5
-allow dataservice_app cnd_socket:sock_file write;
-

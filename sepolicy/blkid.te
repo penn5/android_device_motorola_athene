@@ -1,2 +1,0 @@
-#audit2allow - hackintosh5 - penn5
-allow blkid proc:file read;

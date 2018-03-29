@@ -1,5 +1,13 @@
-allow system_server vibeamp_sysfs:file rw_file_perms; #vibeamp_sysfs is no more... i had to comment it out as it seems to be in cm already
+binder_call(system_server, per_mgr_service_old);
 
-#audit2allow - hackintosh5 - penn5 - TODO: both are suspect
-#allow system_server init:binder { call transfer };
-allow system_server init:unix_stream_socket { read write };
+allow system_server per_mgr_service_old:service_manager { add find };
+allow system_server qmuxd:unix_stream_socket connectto;
+allow system_server qmuxd_socket:dir { add_name search write };
+allow system_server qmuxd_socket:sock_file create_file_perms;
+allow system_server qti_debugfs:file r_file_perms;
+allow system_server rild:binder transfer;
+allow system_server sensors_device:chr_file { ioctl open read };
+allow system_server sensors_device:file {read ioctl};
+allow system_server shell_prop:property_service set;
+allow system_server unlabeled:file { unlink };
+allow system_server vibeamp_sysfs:file rw_file_perms;

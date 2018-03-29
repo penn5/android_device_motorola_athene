@@ -1,4 +1,5 @@
 allow kernel audioserver:process setsched;
+allow kernel block_device:dir search;
 allow kernel bluetooth:process setsched;
 allow kernel cnd:process setsched;
 allow kernel dataservice_app:process setsched;
@@ -15,7 +16,8 @@ allow kernel logd:process setsched;
 allow kernel mediacodec:process setsched;
 allow kernel mediaextractor:process setsched;
 allow kernel mm-qcamerad:process setsched;
-#allow kernel netmgrd:process setsched;
+allow kernel msm_irqbalanced:process setsched;
+allow kernel netmgrd:process setsched;
 #allow kernel perfd:process setsched;
 allow kernel perfprofd:process setsched;
 allow kernel per_mgr:process setsched;
