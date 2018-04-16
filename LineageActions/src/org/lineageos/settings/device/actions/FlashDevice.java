@@ -31,6 +31,8 @@ import android.opengl.GLES20;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 
+import org.lineageos.settings.device.R;
+
 public class FlashDevice {
     private static final String TAG = "Actions-TorchDevice";
 
