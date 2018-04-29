@@ -1,0 +1,62 @@
+
+
+#============= atfwd ==============
+allow atfwd atfwd_service:service_manager find;
+allow atfwd qmuxd:unix_stream_socket connectto;
+allow atfwd qmuxd_socket:dir { add_name write };
+allow atfwd qmuxd_socket:sock_file { create write };
+allow atfwd servicemanager:binder call;
+allow atfwd sysfs:file { open read };
+
+#============= audiod ==============
+allow audiod proc:file { getattr open read };
+allow audiod sysfs:dir { open read };
+
+#============= audioserver ==============
+allow audioserver sysfs:dir { open read };
+
+#============= blkid ==============
+allow blkid proc:file { getattr open read };
+
+#============= cameraserver ==============
+allow cameraserver default_android_service:service_manager add;
+allow cameraserver socket_device:sock_file write;
+
+#============= cnd ==============
+allow cnd self:capability dac_override;
+
+#============= dataservice_app ==============
+allow dataservice_app cnd:unix_stream_socket connectto;
+allow dataservice_app cnd_socket:sock_file write;
+
+#============= fsck ==============
+allow fsck block_device:blk_file { ioctl open read write };
+allow fsck media_rw_data_file:dir getattr;
+
+#============= hal_gnss_qti ==============
+allow hal_gnss_qti default_android_service:service_manager find;
+allow hal_gnss_qti servicemanager:binder call;
+
+#============= hwservicemanager ==============
+allow hwservicemanager init:binder call;
+allow hwservicemanager init:dir search;
+allow hwservicemanager init:file { open read };
+allow hwservicemanager init:process getattr;
+
+#============= init ==============
+allow init batterystats_service:service_manager find;
+allow init hal_fingerprint_hwservice:hwservice_manager add;
+allow init hal_sensors_hwservice:hwservice_manager find;
+allow init hal_telephony_hwservice:hwservice_manager add;
+allow init hidl_base_hwservice:hwservice_manager add;
+allow init hwservicemanager:binder { call transfer };
+allow init mm-qcamerad:binder transfer;
+allow init netmgrd:unix_stream_socket connectto;
+allow init netmgrd_socket:sock_file write;
+allow init per_mgr:binder { call transfer };
+allow init property_socket:sock_file write;
+allow init pstorefs:dir mounton;
+allow init qmuxd:unix_stream_socket connectto;
+allow init qmuxd_socket:sock_file write;
+allow init radio:binder call;
+allow init radio_data_file:file { ioctl lock };

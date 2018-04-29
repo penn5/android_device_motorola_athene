@@ -21,5 +21,6 @@ allow rild sensorservice_service:service_manager find;
 allow rild system_data_file:sock_file { create unlink setattr };
 allow rild system_data_file:dir { write add_name remove_name };
 allow rild system_server:unix_stream_socket { read write };
+#TODO: fixme
 allow rild unlabeled:dir { getattr open read };
 allow rild unlabeled:file { getattr open read };

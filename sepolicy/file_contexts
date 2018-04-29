@@ -75,9 +75,11 @@
 /sys/devices/soc.0/7af8000.spi/spi_master/spi7/spi7.0(/.*)? u:object_r:sysfs_fpc:s0
 
 # WiFi
-/firmware/image/wcnss.*									    u:object_r:wifi_firmware_file:s0
+/firmware/image/wcnss.*                                     u:object_r:wifi_firmware_file:s0
 
 /sys/kernel/debug/rmt_storage(/.*)?                         u:object_r:debugfs_rmt_storage:s0
 /sys/kernel/debug/rpm_stats                                 u:object_r:debugfs_rpm:s0
 /sys/kernel/debug/rpm_master_stats                          u:object_r:debugfs_rpm:s0
-#/sys/devices/soc.0/1de0000.qcom,venus(/.*)?                 u:object_r:sysfs_soc_qcom:s0
+#/sys/devices/soc.0/1de0000.qcom,venus(/.*)?                u:object_r:sysfs_soc_qcom:s0
+
+/system/bin/cnss-daemon            u:object_r:cnss-daemon_exec:s0

@@ -52,7 +52,7 @@ TARGET_CPU_CORTEX_A53 := true
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=0 earlyprintk androidboot.selinux=enforcing
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=0 earlyprintk androidboot.selinux=permissive selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -225,8 +225,13 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_USE_SDCLANG := true
 
 # SELinux
+#PRODUCT_SEPOLICY_SPLIT := false #Disable TREBLE-SE mode.
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += \
+#    $(DEVICE_PATH)/qcom_sepolicy_common \
+#    $(DEVICE_PATH)/qcom_sepolicy_msm8952 \
+    device/motorola/athene/sepolicy
+#PRODUCT_SEPOLICY_SPLIT := false #Disable TREBLE-SE mode, which says that our sepolicy cannot impact the /system partition. However, there is no /vendor for athene.
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
