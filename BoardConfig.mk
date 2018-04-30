@@ -225,7 +225,7 @@ LZMA_RAMDISK_TARGETS := recovery
 TARGET_USE_SDCLANG := true
 
 # SELinux
-#PRODUCT_SEPOLICY_SPLIT := false #Disable TREBLE-SE mode.
+PRODUCT_SEPOLICY_SPLIT := false #Disable TREBLE-SE mode.
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
 #    $(DEVICE_PATH)/qcom_sepolicy_common \
